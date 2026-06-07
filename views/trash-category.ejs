@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Trash Category</title>
+
+    <link rel="stylesheet" href="/assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="/assets/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+
+</head>
+
+<body>
+
+    <div class="container-scroller"> <%- include('sidebar') %>
+            <div class="container-fluid page-body-wrapper"> <%- include('header') %>
+                    <div class="main-panel">
+                        <div class="content-wrapper">
+                            <div class="row">
+                                <div class="col-lg-12 grid-margin stretch-card">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h4 class="card-title"> Trash Category </h4>
+                                            <p class="text-muted"> Deleted categories can be restored or deleted
+                                                permanently. </p>
+                                            <div class="table-responsive">
+                                                <table class="table table-dark">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>#</th>
+                                                            <th>Category Name</th>
+                                                            <th>Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <% if(category.length> 0){ %> <% category.forEach((cat,index)=>{
+                                                                %> <tr>
+                                                                    <td>
+                                                                        <%= index + 1 %>
+                                                                    </td>
+                                                                    <td>
+                                                                        <%= cat.categoryName %>
+                                                                    </td>
+                                                                    <td> <a href="/category/restore/<%= cat._id %>"
+                                                                            class="btn btn-success btn-sm"> Restore </a>
+                                                                        <a href="/category/permanent-delete/<%= cat._id %>"
+                                                                            class="btn btn-danger btn-sm"
+                                                                            onclick="return confirm('Are you sure you want to delete permanently?')">
+                                                                            Delete Forever </a> </td>
+                                                                </tr>
+                                                                <% }) %>
+                                                                    <% } else { %>
+                                                                        <tr>
+                                                                            <td colspan="3" class="text-center"> No
+                                                                                Categories Found In Trash </td>
+                                                                        </tr>
+                                                                        <% } %>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <%- include('footer') %>
+                    </div>
+            </div>
+    </div>
+    <script src="/assets/vendors/js/vendor.bundle.base.js"></script>
+    <script src="/assets/js/off-canvas.js"></script>
+    <script src="/assets/js/misc.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <% if(success && success.length> 0){ %>
+        <script> Swal.fire({ icon: "success", title: "Success", text: "<%= success[0] %>", timer: 2000, showConfirmButton: false }); </script>
+        <% } %>
+            <% if(error && error.length> 0){ %>
+                <script> Swal.fire({ icon: "error", title: "Error", text: "<%= error[0] %>", timer: 2000, showConfirmButton: false }); </script>
+                <% } %>
+
+</body>
+
+</html>

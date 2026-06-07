@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login | Admin Panel</title>
+
+  <!-- ICONS -->
+  <link rel="stylesheet" href="/assets/vendors/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="/assets/vendors/font-awesome/css/font-awesome.min.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/vendors/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+
+  <link rel="shortcut icon" href="/assets/images/favicon.png" />
+</head>
+
+<body>
+  <div class="container-scroller">
+    <div class="container-fluid page-body-wrapper full-page-wrapper">
+      <div class="row w-100">
+
+        <div class="content-wrapper d-flex align-items-center auth login-bg">
+          <div class="card col-lg-4 mx-auto">
+            <div class="card-body px-5 py-5">
+
+              <h3 class="card-title text-center mb-4">Login</h3>
+              <form action="/admin/login" method="POST">
+
+                <!-- EMAIL -->
+                <div class="form-group">
+                  <label>Email</label>
+                  <input type="email" name="email" class="form-control p_input" required>
+                </div>
+
+                <!-- PASSWORD -->
+                <div class="form-group">
+                  <label>Password</label>
+                  <input type="password" name="password" class="form-control p_input" required>
+                </div>
+
+                <!-- REMEMBER -->
+                <div class="form-group d-flex align-items-center justify-content-between">
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input type="checkbox" class="form-check-input"> Remember me
+                    </label>
+                  </div>
+                  <a href="/admin/forgot-password" class="forgot-pass">Forgot password</a>
+                </div>
+
+                <!-- BUTTON -->
+                <div class="text-center d-grid gap-2">
+                  <button type="submit" class="btn btn-primary btn-block enter-btn">Login</button>
+                </div>
+
+                <!-- REGISTER -->
+                <p class="sign-up text-center mt-3">
+                  Don't have an account?
+                  <a href="/admin/register">Sign Up</a>
+                </p>
+
+              </form>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script src="/assets/vendors/js/vendor.bundle.base.js"></script>
+  <script src="/assets/js/off-canvas.js"></script>
+  <script src="/assets/js/misc.js"></script>
+
+</body>
+
+</html>

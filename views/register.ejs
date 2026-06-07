@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Register</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/vendors/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="/assets/vendors/ti-icons/css/themify-icons.css">
+  <link rel="stylesheet" href="/assets/vendors/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="/assets/vendors/font-awesome/css/font-awesome.min.css">
+
+  <link rel="stylesheet" href="/assets/css/style.css">
+
+  <link rel="shortcut icon" href="/assets/images/favicon.png" />
+</head>
+
+<body>
+
+<div class="container-scroller">
+
+  <div class="container-fluid page-body-wrapper full-page-wrapper">
+
+    <div class="row w-100">
+
+      <div class="content-wrapper full-page-wrapper d-flex align-items-center auth login-bg">
+
+        <div class="card col-lg-4 mx-auto">
+
+          <div class="card-body px-5 py-5">
+
+            <div class="text-center mb-4">
+              <i class="mdi mdi-account-plus text-primary" style="font-size:55px;"></i>
+
+              <h3 class="card-title mt-3">
+                Create Account
+              </h3>
+
+              <p class="text-muted">
+                Register new admin account
+              </p>
+            </div>
+
+            <form action="/admin/register" method="POST">
+
+              <!-- USERNAME -->
+              <div class="form-group">
+
+                <label>Username</label>
+
+                <div class="input-group">
+
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-dark border-0">
+                      <i class="mdi mdi-account text-primary"></i>
+                    </span>
+                  </div>
+
+                  <input
+                    type="text"
+                    name="name"
+                    class="form-control p_input"
+                    placeholder="Enter username"
+                    required
+                  >
+
+                </div>
+
+              </div>
+
+              <!-- EMAIL -->
+              <div class="form-group">
+
+                <label>Email</label>
+
+                <div class="input-group">
+
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-dark border-0">
+                      <i class="mdi mdi-email text-success"></i>
+                    </span>
+                  </div>
+
+                  <input
+                    type="email"
+                    name="email"
+                    class="form-control p_input"
+                    placeholder="Enter email"
+                    required
+                  >
+
+                </div>
+
+              </div>
+
+              <!-- PASSWORD -->
+              <div class="form-group">
+
+                <label>Password</label>
+
+                <div class="input-group">
+
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-dark border-0">
+                      <i class="mdi mdi-lock text-danger"></i>
+                    </span>
+                  </div>
+
+                  <input
+                    type="password"
+                    name="password"
+                    class="form-control p_input"
+                    placeholder="Enter password"
+                    required
+                  >
+
+                </div>
+
+              </div>
+
+              <!-- BUTTON -->
+              <div class="text-center mt-4">
+
+                <button
+                  type="submit"
+                  class="btn btn-primary btn-block enter-btn"
+                >
+                  <i class="mdi mdi-account-plus"></i>
+                  Register
+                </button>
+
+              </div>
+
+              <!-- LOGIN -->
+              <p class="sign-up text-center mt-4">
+
+                Already have an account?
+
+                <a href="/admin/login">
+                  Login
+                </a>
+
+              </p>
+
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- JS -->
+<script src="/assets/vendors/js/vendor.bundle.base.js"></script>
+
+<script src="/assets/js/off-canvas.js"></script>
+<script src="/assets/js/misc.js"></script>
+<script src="/assets/js/settings.js"></script>
+<script src="/assets/js/todolist.js"></script>
+
+</body>
+</html>

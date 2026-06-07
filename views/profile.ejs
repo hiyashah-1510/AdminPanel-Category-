@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Admin Profile</title>
+
+    <link rel="stylesheet" href="/assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="/assets/vendors/ti-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="/assets/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="/assets/vendors/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+
+</head>
+
+<body>
+
+    <div class="container-scroller">
+
+        <%- include('sidebar') %>
+
+        <div class="container-fluid page-body-wrapper">
+
+            <%- include('header') %>
+
+            <div class="main-panel">
+
+                <div class="content-wrapper">
+
+                    <div class="row">
+
+                        <div class="col-md-12 grid-margin stretch-card">
+
+                            <div class="card">
+
+                                <div class="card-body">
+
+                                    <h4 class="card-title mb-4">
+                                        Admin Profile
+                                    </h4>
+
+                                    <form
+                                        class="forms-sample"
+                                        action="/admin/update/<%= admin._id %>"
+                                        method="POST"
+                                        enctype="multipart/form-data"
+                                    >
+
+                                        <input
+                                            type="hidden"
+                                            name="oldImage"
+                                            value="<%= admin.avatar %>"
+                                        >
+
+                                        <div class="text-center mb-5">
+
+                                            <img
+                                                src="/uploads/<%= admin.avatar %>"
+                                                class="img-lg rounded-circle"
+                                                style="width: 120px; height: 120px; object-fit: cover;"
+                                            >
+
+                                        </div>
+
+                                        <div class="row">
+
+                                            <div class="col-md-6">
+
+                                                <div class="form-group">
+
+                                                    <label>Name</label>
+
+                                                    <input
+                                                        type="text"
+                                                        name="name"
+                                                        class="form-control"
+                                                        value="<%= admin.name %>"
+                                                        required
+                                                    >
+
+                                                </div>
+
+                                            </div>
+
+                                            <div class="col-md-6">
+
+                                                <div class="form-group">
+
+                                                    <label>Email</label>
+
+                                                    <input
+                                                        type="email"
+                                                        name="email"
+                                                        class="form-control"
+                                                        value="<%= admin.email %>"
+                                                        required
+                                                    >
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row">
+
+                                            <div class="col-md-6">
+
+                                                <div class="form-group">
+
+                                                    <label>Phone</label>
+
+                                                    <input
+                                                        type="text"
+                                                        name="phone"
+                                                        class="form-control"
+                                                        value="<%= admin.phone %>"
+                                                    >
+
+                                                </div>
+
+                                            </div>
+
+                                            <div class="col-md-6">
+
+                                                <div class="form-group">
+
+                                                    <label>Role</label>
+
+                                                    <input
+                                                        type="text"
+                                                        class="form-control"
+                                                        value="<%= admin.role %>"
+                                                        readonly
+                                                    >
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                        <div class="form-group">
+
+                                            <label>Change Avatar</label>
+
+                                            <input
+                                                type="file"
+                                                name="avatar"
+                                                class="form-control"
+                                            >
+
+                                        </div>
+
+                                        <div class="mt-4">
+
+                                            <button
+                                                type="submit"
+                                                class="btn btn-primary me-2"
+                                            >
+                                                Update Profile
+                                            </button>
+
+                                            <a
+                                                href="/admin/change-password/<%= admin._id %>"
+                                                class="btn btn-success"
+                                            >
+                                                Change Password
+                                            </a>
+
+                                        </div>
+
+                                    </form>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <%- include('footer') %>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="/assets/vendors/js/vendor.bundle.base.js"></script>
+    <script src="/assets/js/off-canvas.js"></script>
+    <script src="/assets/js/misc.js"></script>
+    <script src="/assets/js/settings.js"></script>
+    <script src="/assets/js/todolist.js"></script>
+
+</body>
+
+</html>

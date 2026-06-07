@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Admin</title>
+
+  <link rel="stylesheet" href="/assets/vendors/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="/assets/vendors/font-awesome/css/font-awesome.min.css">
+
+  <link rel="stylesheet" href="/assets/vendors/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+
+<body>
+<div class="container-scroller">
+
+<%- include('sidebar') %>
+
+  <div class="container-fluid page-body-wrapper">
+    
+<%- include('header') %>
+
+<div class="main-panel">
+  <div class="content-wrapper">
+
+    <div class="page-header">
+      <h3 class="page-title">Edit Admin</h3>
+    </div>
+
+    <div class="card form-card shadow-lg">
+      <div class="card-body">
+
+        <h4 class="card-title mb-4">Update Admin Details</h4>
+
+        <form action="/admin/update/<%= admin._id %>" method="POST" enctype="multipart/form-data">
+
+          <!-- Name -->
+          <div class="form-group mb-3">
+            <label>Name</label>
+            <input type="text" name="name" class="form-control"
+              value="<%= admin.name %>" required>
+          </div>
+
+          <!-- Email -->
+          <div class="form-group mb-3">
+            <label>Email</label>
+            <input type="email" name="email" class="form-control"
+              value="<%= admin.email %>" required>
+          </div>
+
+          <!-- Phone -->
+          <div class="form-group mb-3">
+            <label>Phone</label>
+            <input type="text" name="phone" class="form-control"
+              value="<%= admin.phone %>">
+          </div>
+
+          <!-- Role -->
+          <div class="form-group mb-3">
+            <label>Role</label>
+            <input type="text" name="role" class="form-control"
+              value="<%= admin.role %>">
+          </div>
+
+          <!-- Avatar -->
+          <div class="form-group mb-4">
+            <label>Avatar</label>
+
+            <div class="avatar-preview">
+              <% if (admin.avatar) { %>
+                <img src="/uploads/<%= admin.avatar %>">
+              <% } else { %>
+                <img src="/assets/images/faces/face15.jpg">
+              <% } %>
+
+              <div>
+                <input type="file" name="avatar" class="form-control mb-2">
+                <small class="text-muted">Upload new image to replace current avatar</small>
+              </div>
+            </div>
+          </div>
+
+          <!-- Buttons -->
+          <div class="btn-group-custom">
+            <button type="submit" class="btn btn-success">
+              Update Admin
+            </button>
+
+            <a href="/admin/view" class="btn btn-dark">
+              Cancel
+            </a>
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+
+  </div>
+
+  <%- include('footer') %>
+
+</div>
+```
+
+  </div>
+</div>
+
+<script src="/assets/vendors/js/vendor.bundle.base.js"></script>
+
+<script src="/assets/js/off-canvas.js"></script>
+
+<script src="/assets/js/misc.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin Panel</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="/assets/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+
+<body>
+    <div class="container-scroller">
+
+        <%- include('sidebar') %>
+
+            <div class="page-body-wrapper">
+
+                <!-- Navbar -->
+                <%- include('header') %>
+
+                    <div class="main-panel">
+                        <div class="content-wrapper">
+
+                            <div class="page-header">
+                                <h3 class="page-title">Admin List</h3>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-body">
+
+                                    <h4 class="card-title">All Admins</h4>
+
+                                    <div class="table-responsive">
+                                        <table class="table table-dark table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Avatar</th>
+                                                    <th>Name</th>
+                                                    <th>Email</th>
+                                                    <th>Role</th>
+                                                    <th>Phone</th>
+                                                    <th>Created</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+
+                                            <tbody>
+                                                <% admins.forEach((admin, index)=> { %>
+                                                    <tr>
+                                                        <td>
+                                                            <%= index + 1 %>
+                                                        </td>
+
+                                                        <td>
+                                                            <% if (admin.avatar) { %>
+                                                                <img src="/uploads/<%= admin.avatar %>" width="45"
+                                                                    height="45"
+                                                                    style="border-radius:50%; object-fit:cover;">
+                                                                <% } else { %>
+                                                                    <img src="/assets/images/faces/face15.jpg"
+                                                                        width="45" height="45"
+                                                                        style="border-radius:50%;">
+                                                                    <% } %>
+                                                        </td>
+
+                                                        <td>
+                                                            <%= admin.name %>
+                                                        </td>
+                                                        <td>
+                                                            <%= admin.email %>
+                                                        </td>
+
+                                                        <td>
+                                                            <span class="badge badge-info">
+                                                                <%= admin.role || "Admin" %>
+                                                            </span>
+                                                        </td>
+
+                                                        <td>
+                                                            <%= admin.phone || "-" %>
+                                                        </td>
+
+                                                        <td>
+                                                            <%= admin.createdAt ? admin.createdAt.toDateString() : "-"
+                                                                %>
+                                                        </td>
+
+                                                        <td>
+                                                            <a href="/admin/edit/<%= admin._id %>"
+                                                                class="btn btn-warning btn-sm">Edit</a>
+
+                                                            <a href="/admin/delete/<%= admin._id %>"
+                                                                class="btn btn-sm btn-danger"
+                                                                onclick="return confirm('Delete this admin?')">
+                                                                Delete
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <% }) %>
+                                            </tbody>
+
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <%- include('footer') %>
+                    </div>
+            </div>
+    </div>
+
+    <!-- JS -->
+    <script src="/assets/vendors/js/vendor.bundle.base.js"></script>
+    <script src="/assets/js/off-canvas.js"></script>
+    <script src="/assets/js/misc.js"></script>
+
+</body>
+
+</html>
